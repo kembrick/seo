@@ -35,9 +35,10 @@ AddType text/woff2 .woff2
 
 3. Предотсращение CLS в адаптивном слайдере Owl carousel
 В SCSS:
+// CLS-fix
 .owl-carousel {
   display: block;
-  & > * {
+  & > *:not(.owl-nav, .owl-dots) {
     display: none;
     &:first-child {
       display: block;
