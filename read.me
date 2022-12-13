@@ -30,7 +30,10 @@ AddType text/woff2 .woff2
   ExpiresByType application/javascript "access plus 1 year"
 </IfModule>
 
-2. Предотсращение CLS в адаптивном слайдере Owl carousel
+2. В CSS всем загружаемым шрифтам указать
+  font-display: swap;
+
+3. Предотсращение CLS в адаптивном слайдере Owl carousel
 В SCSS:
 .owl-carousel {
   display: block;
