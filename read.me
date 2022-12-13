@@ -1,13 +1,20 @@
 Оптимизации для прохождения сайтом теста Lighthouse 
 
-1. НАстройка кэширования в .htaccess
+1. Настройка кэширования статики в конфиге nginx
+
+    	location ~* ^.+\.(jpg|jpeg|gif|png|svg|js|css|mp3|ogg|mpe?g|avi|zip|gz|bz2?|rar|swf|woff2)$ {
+   		 expires 120d;
+   		 try_files $uri $uri/ @fallback;
+   	 }
+
+Под голым Apache можно бы было так:
+
 AddType image/webp .webp
 AddType video/webm .webm
 AddType video/mp4 .mp4
 AddType image/svg+xml .svg
 AddType text/woff .woff
 AddType text/woff2 .woff2
-
 <IfModule mod_expires.c>
   ExpiresActive on
   ExpiresByType image/jpeg "access plus 1 year"
@@ -15,15 +22,11 @@ AddType text/woff2 .woff2
   ExpiresByType image/png "access plus 1 year"
   ExpiresByType image/svg+xml "access 1 year"
   ExpiresByType image/webp "access plus 1 year"
-
   ExpiresByType video/webm "access plus 1 year"
   ExpiresByType video/mp4 "access plus 1 year"
-
   ExpiresByType text/woff "access plus 1 year"
   ExpiresByType text/woff2 "access plus 1 year"
-
   ExpiresByType text/css "access plus 1 year"
-
   ExpiresByType application/javascript "access plus 1 year"
 </IfModule>
 
