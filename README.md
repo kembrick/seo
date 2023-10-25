@@ -1,14 +1,14 @@
 Оптимизации для прохождения сайтом теста Lighthouse 
 
 1. Настройка кэширования статики в конфиге nginx
-
+```
     	location ~* ^.+\.(jpg|jpeg|gif|png|svg|js|css|mp3|ogg|mpe?g|avi|zip|gz|bz2?|rar|swf|woff2)$ {
    		 expires 120d;
    		 try_files $uri $uri/ @fallback;
    	 }
-
+```
 Под голым Apache можно бы было так:
-
+```
 AddType image/webp .webp
 AddType video/webm .webm
 AddType video/mp4 .mp4
@@ -29,12 +29,14 @@ AddType text/woff2 .woff2
   ExpiresByType text/css "access plus 1 year"
   ExpiresByType application/javascript "access plus 1 year"
 </IfModule>
-
+```
 2. В CSS всем загружаемым шрифтам указать
+```   
   font-display: swap;
-
-3. Предотвращение CLS в адаптивном слайдере Owl carousel
+```
+4. Предотвращение CLS в адаптивном слайдере Owl carousel
 В SCSS:
+```
 // CLS-fix
 .owl-carousel {
   display: block;
@@ -52,7 +54,9 @@ AddType text/woff2 .woff2
     }
   }
 }
+```
 В HTML:
+```
 <div class="first-slider owl-carousel owl-theme">
   <div>
     <picture>
@@ -61,3 +65,4 @@ AddType text/woff2 .woff2
     </picture>
   </div>
 </div>
+```
