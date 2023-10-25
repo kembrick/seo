@@ -35,6 +35,7 @@ AddType text/woff2 .woff2
   font-display: swap;
 ```
 4. Предотвращение CLS в адаптивном слайдере Owl carousel
+
 В SCSS:
 ```
 // CLS-fix
