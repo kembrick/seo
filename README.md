@@ -1,11 +1,11 @@
-Оптимизации для прохождения сайтом теста Lighthouse 
+Оптимизации для успешного прохождения сайтом теста Lighthouse 
 
 1. Настройка кэширования статики в конфиге nginx
 ```
-    	location ~* ^.+\.(jpg|jpeg|gif|png|svg|js|css|mp3|ogg|mpe?g|avi|zip|gz|bz2?|rar|swf|woff2)$ {
-   		 expires 120d;
-   		 try_files $uri $uri/ @fallback;
-   	 }
+location ~* ^.+\.(jpg|jpeg|gif|png|svg|js|css|mp3|ogg|mpe?g|avi|zip|gz|bz2?|rar|swf|woff2)$ {
+    expires 120d;
+    try_files $uri $uri/ @fallback;
+}
 ```
 Под голым Apache можно бы было так:
 ```
@@ -32,7 +32,7 @@ AddType text/woff2 .woff2
 ```
 2. В CSS всем загружаемым шрифтам указать
 ```   
-  font-display: swap;
+font-display: swap;
 ```
 4. Предотвращение CLS в адаптивном слайдере Owl carousel
 
